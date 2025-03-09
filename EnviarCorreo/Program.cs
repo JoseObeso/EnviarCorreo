@@ -14,7 +14,6 @@ namespace EnviarCorreo
     {
 
         public static event EventHandler EventoOcurrido;
-
         static void Main(string[] args)
         {
 
@@ -37,7 +36,7 @@ namespace EnviarCorreo
         private static void OnEventoOcurrido(object sender, EventArgs e)
         {
             EmailSender emailSender = new EmailSender();
-            emailSender.SendEmail("jobeso@elpiquero.com", "Bienvenidos al Equipo IRTP", "Bienvenido");
+            emailSender.SendEmail("jobeso@irtp.gob.pe", "Bienvenidos al Equipo IRTP", "Bienvenido");
            
         }
 
@@ -47,7 +46,6 @@ namespace EnviarCorreo
              
             private string smtpServer = "smtp.gmail.com";
             private int smtpPort = 587; // o el puerto que uses
-            
             private string smtpUser = "irtpbot@irtp.gob.pe";
             private string smtpPass = "Dev#03$March#irtp";
 
@@ -61,13 +59,13 @@ namespace EnviarCorreo
                     mail.From = new MailAddress(smtpUser);
                     mail.To.Add(toEmail);
                     mail.Subject = subject;
+                    mail.IsBodyHtml = true;
                     mail.Body = CuerpoMensaje();
-
                     smtpClient.Port = smtpPort;
                     smtpClient.Credentials = new NetworkCredential(smtpUser, smtpPass);
                     smtpClient.EnableSsl = true;
-
                     smtpClient.Send(mail);
+
                     Console.WriteLine("Correo enviado exitosamente.");
                 }
                 catch (Exception ex)
