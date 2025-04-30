@@ -44,10 +44,10 @@ namespace EnviarCorreo
         {
 
              
-            private string smtpServer = "smtp.gmail.com";
-            private int smtpPort = 587; // o el puerto que uses
-            private string smtpUser = "irtpbot@irtp.gob.pe";
-            private string smtpPass = "Dev#03$March#irtp";
+            private string smtpServer = "mail.elpiquero.com";
+            private int smtpPort = 465; // o el puerto que uses
+            private string smtpUser = "jobesoirtp@elpiquero.com";
+            private string smtpPass = "Jose2025Obeso";
 
             public void SendEmail(string toEmail, string subject, string body)
             {
